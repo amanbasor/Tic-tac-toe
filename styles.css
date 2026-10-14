@@ -1,0 +1,124 @@
+:root {
+  --bg: #eceae6;
+  --surface: #f7f5f1;
+  --ink: #3a3835;
+  --muted: #7a7670;
+  --line: #d4cfc6;
+  --hover: #e7e2d9;
+  --win: #ddd6cb;
+  --x: #3a3835;
+  --o: #8a847a;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.app {
+  width: min(92vw, 360px);
+  text-align: center;
+}
+
+.header {
+  margin-bottom: 1.75rem;
+}
+
+h1 {
+  margin: 0 0 0.4rem;
+  font-size: 1.15rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.status {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  padding: 8px;
+  background: var(--line);
+  border-radius: 4px;
+}
+
+.cell {
+  aspect-ratio: 1;
+  border: 0;
+  background: var(--surface);
+  color: inherit;
+  font: inherit;
+  font-size: clamp(1.8rem, 8vw, 2.6rem);
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.cell:hover:not(:disabled),
+.cell:focus-visible:not(:disabled) {
+  background: var(--hover);
+}
+
+.cell:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: -2px;
+}
+
+.cell.x {
+  color: var(--x);
+}
+
+.cell.o {
+  color: var(--o);
+}
+
+.cell.win {
+  background: var(--win);
+}
+
+.cell:disabled {
+  cursor: default;
+}
+
+.reset {
+  margin-top: 1.5rem;
+  padding: 0.55rem 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.reset:hover,
+.reset:focus-visible {
+  background: var(--surface);
+}
+
+.reset:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
